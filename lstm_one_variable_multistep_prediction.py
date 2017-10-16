@@ -169,12 +169,6 @@ n_neurons = 64
 # prepare data
 scaler, train, test = prepare_data(series, n_test, n_lag, n_seq)
 
-#%%
-X, y = train[:, 0:n_lag], train[:, n_lag:]
-X = X.reshape(X.shape[0], X.shape[1], 1)
-
-#%%
-y.shape
 
 #%% fit model
 model = fit_lstm(train, n_lag, n_seq, n_batch, n_epochs, n_neurons)
